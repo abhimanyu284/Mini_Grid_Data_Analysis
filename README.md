@@ -12,9 +12,10 @@ dashboard come out.
    (ToU) tariff customers behave differently from standard-tariff customers?
 
 ## Key findings
-- **Solar:** [FILL: e.g. "N Plant 2 inverters produced zero AC power in about 17-23%
-  of daylight intervals, versus about 98-99% availability at Plant 1."]
-  The data does not show the cause (fault, curtailment or maintenance).
+- **Solar:** at least five of Plant 2's 22 inverters produced zero AC power in roughly
+  17-23% of daylight intervals (77-83% availability), while Plant 1's weakest-ranked
+  inverters still ran at about 98-99%. The data does not show the cause (fault,
+  curtailment or maintenance).
 - **Household demand:** ToU households used about 16% less electricity per day than
   standard-tariff households (12.8 vs 15.2 kWh), but their share of use between 17:00
   and 20:00 was about the same (18.6% vs 18.2%). ToU was a trial group, so the
@@ -29,11 +30,11 @@ dashboard come out.
 ## Data sources (all real, nothing simulated)
 | Dataset | What it is | Used for | License |
 |---|---|---|---|
-| Solar Power Generation Data (Kaggle) | 2 plants, 22 inverters each, 15-minute AC/DC power and weather sensors, 34 days | Inverter availability and performance | [FILL: from the dataset page] |
-| Smart meters in London (UK Power Networks, via Kaggle) | Half-hourly household readings, tariff type, Acorn group, weather | Demand profiles, Std vs ToU | [FILL: from the dataset page] |
+| [Solar Power Generation Data](https://www.kaggle.com/anikannal/solar-power-generation-data) (Kaggle) | 2 plants, 22 inverters each, 15-minute AC/DC power and weather sensors, 34 days | Inverter availability and performance | See dataset page; used here for non-commercial portfolio analysis |
+| [Smart meters in London](https://www.kaggle.com/jeanmidev/smart-meters-in-london) (UK Power Networks, via Kaggle) | Half-hourly household readings, tariff type, Acorn group, weather | Demand profiles, Std vs ToU | CC-BY, released by UK Power Networks (London Datastore) |
 
 The two datasets come from different places and are never joined. Raw data is not
-stored in this repo (about 1.7 GB); download links are above.
+stored in this repo (about 1.7 GB); use the links above to download it.
 
 ## Pipeline
 ```
@@ -73,9 +74,9 @@ docs/        KPI definitions, data findings and quality log
 
 ## Assumptions and limitations
 - The solar data covers only 34 days, so there is no seasonal analysis.
-- The London sample uses 2013 only. It is 456 households with a full year of data
-  (348 standard, 108 ToU), taken from the first 10 of 112 data blocks. [FILL: update
-  this line if you resample across all blocks.]
+- The London sample uses 2013 only: 456 households with a full year of data
+  (348 standard, 108 ToU), taken from the first 10 of 112 data blocks, so it may not
+  be representative of all London households.
 - Billing uses a flat 14.228p/kWh for every household. This is an assumption; the
   ToU price schedule is not in the downloaded data.
 - Missing generation rows are counted as unavailable.
